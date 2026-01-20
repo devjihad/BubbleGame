@@ -52,3 +52,12 @@ html,body{
     background-color: bisque;
     font-size: 20px;
 }
+.bottomElement:hover{
+    background-color: rgb(73, 61, 45);
+    color: white;
+    cursor: pointer;
+}
+.result{
+    color: white;
+    text-align: center;
+}

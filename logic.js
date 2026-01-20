@@ -1,3 +1,13 @@
+let score = document.querySelector('#score')
+let bottom = document.querySelector('#bottom')
+let number =0
+let result = 0
+
+const increase =()=>{
+    result += 10
+    score.textContent = result
+}
+
 const element=()=>{
     let increase =''
 for(let i=0; i<150; i++){
@@ -7,7 +17,7 @@ for(let i=0; i<150; i++){
 }
 document.querySelector('.bottom').innerHTML = increase
 }
-element()
+
 
 const timestamp=()=>{
     let time =60 
@@ -18,16 +28,33 @@ const timestamp=()=>{
         }
         else{
             clearInterval(timer)
+            document.querySelector('.bottom').innerHTML = `<h1 class='result'> Your Score is ${result}</h1>`
+            document.querySelector('#hitt').textContent = 0
+
         }
     }, 1000);
 }
 
-timestamp()
+
 
 const hitnum =()=>{
-    let hit = Math.floor(Math.random()*10)
-    document.querySelector('#hitt').textContent = hit
-    console.log(hit)
+    number = Math.floor(Math.random()*10)
+    document.querySelector('#hitt').textContent = number
+   
 }
 
+bottom.addEventListener('click',(e)=>{
+    let value = Number(e.target.textContent)
+    console.log(value)
+    if(number ==value){
+        increase()
+        hitnum()
+        element()
+    }
+
+})
+
 hitnum()
+element()
+timestamp()
+// increase()
